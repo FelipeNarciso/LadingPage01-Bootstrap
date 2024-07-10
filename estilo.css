@@ -29,11 +29,11 @@ body{
     color: white;
 }
 
-/* Media Queries */
 footer{
     background-color: #d3b390 ;
     color: #56493b;
 }
+/* Media Queries */
 
 @media  screen and (max-width: 1028px) {
     .box-diferenciais{
@@ -45,10 +45,6 @@ footer{
 }
 
 @media  screen and (max-width: 500px) {
-    /* .fs-sm{
-        width: 90%;
-    } */
-
     #section-01-home{
         background-attachment: scroll;
     }
@@ -145,4 +141,16 @@ footer{
     font-family: Atsanaee;
 }
 
+/* Depoimentos-content */
+/* Section01 */
+#section01-depoimentos{
+    background-color: #d3b390;
+}
 
+#section01-depoimentos  h1{
+    font-family: Brasika;
+    color: #56493b;
+}
+.gold-star{
+    color: gold;
+}
