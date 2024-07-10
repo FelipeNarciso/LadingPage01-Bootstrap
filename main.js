@@ -103,23 +103,6 @@ function formulario(){
 
 } 
 
-function requisitar(url){
-    let conteudo = document.getElementById('conteudo')
-    let ajax = new XMLHttpRequest()
-
-    ajax.open('GET' , url , true)
-
-    ajax.onload = function() {
-        if(ajax.status >= 200 && ajax.status < 400){
-            conteudo.innerHTML = ajax.responseText
-        }else{
-            conteudo.innerHTML = 'Ocorreu um erro inesperado :( Já estamos trabalhando nisso!'
-        }
-    }
-
-    ajax.send()
-}
-
 function formulario(){
     let nomeValido = true
     let nome = document.getElementById('txtNome')

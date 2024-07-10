@@ -1,5 +1,7 @@
-
 /* Index */
+body{
+    overflow-x: hidden;
+}
 /* Navbar */
 #navbar{
     background-color: #56493b;
@@ -42,6 +44,16 @@ footer{
      }
 }
 
+@media  screen and (max-width: 500px) {
+    .fs-sm{
+        width: 90%;
+    }
+
+    #section-01-home{
+        background-attachment: scroll;
+    }
+}
+
 
 /* Home-content */
 /* Section01 */
@@ -53,7 +65,7 @@ footer{
 }
 
 #section01-home h1{
-    font-family: Brasika;
+    font-family: Brasika !important;
     background-color: #fcf6db;
 }
 
