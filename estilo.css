@@ -45,9 +45,9 @@ footer{
 }
 
 @media  screen and (max-width: 500px) {
-    .fs-sm{
+    /* .fs-sm{
         width: 90%;
-    }
+    } */
 
     #section-01-home{
         background-attachment: scroll;
@@ -61,7 +61,6 @@ footer{
     background-image: url(./images/ImagemFundo.jpg);
     background-repeat: no-repeat;
     background-size: cover;
-    background-attachment: fixed;
 }
 
 #section01-home h1{
@@ -90,6 +89,7 @@ footer{
 #section02-home h5{
     color: #56493b;
     font-family: Atsanee;
+    width: 90%;
 }
 
 /* Section03 */
@@ -97,7 +97,6 @@ footer{
     background-image: url(./images/imagem5.jpg);
     background-repeat: no-repeat;
     background-size: cover;
-    background-attachment: fixed;
 }
 
 #section03-home h1{
@@ -147,137 +146,3 @@ footer{
 }
 
 
-/* Index */
-/* Navbar */
-#navbar{
-    background-color: #56493b;
-}
-
-#tituloNavbar{
-    font-family: Brasika;
-}
-
-#navbar a{
-    color: #fcf6db;
-    font-family: Atasanee;
-}
-
-#navbarNav a:hover{
-    color: gold;
-    text-decoration-line: underline;
-    text-underline-offset: 10px;
-    cursor: pointer; 
-}
-
-#btnToggle{
-    background-color: none;
-    border-color: #fcf6db;
-    color: white;
-}
-
-/* Media Queries */
-footer{
-    background-color: #d3b390 ;
-    color: #56493b;
-}
-
-@media  screen and (max-width: 1028px) {
-    .box-diferenciais{
-        height: 300px;
-    }
-    #font-footer{
-        font-size: 0.8rem;
-     }
-}
-
-
-/* Home-content */
-/* Section01 */
-#section01-home{
-    background-image: url(./images/ImagemFundo.jpg);
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-attachment: fixed;
-}
-
-#section01-home h1{
-    font-family: Brasika;
-    background-color: #fcf6db;
-}
-
-.caixaTextoSection01{
-    background-color: #56493b;
-    color: #fcf6db;
-    font-family: Atsanee;
-    width: 300px;
-    height: 300px;
-}
-
-/* Section02 */
-#section02-home{
-    background-color:rgb(215, 205, 195);
-}
-
-#section02-home h1{
-    color: #56493b;
-    font-family: Brasika;
-}
-
-#section02-home h5{
-    color: #56493b;
-    font-family: Atsanee;
-}
-
-/* Section03 */
-#section03-home{
-    background-image: url(./images/imagem5.jpg);
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-attachment: fixed;
-}
-
-#section03-home h1{
-    color: #56493b;
-    font-family: Brasika;
-}
-
-.box-diferenciais{
-    height: 400px;
-    box-shadow: 0px 0px 10px black;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    color: #56493b;
-    font-family: Atsanaee;
-}
-
-/* Eventos-content */
-/* Section01 */
-#section01-eventos{
-    background-color: #d3b390;
-}
-
-#section01-eventos h1{
-    font-family: Brasika;
-    color: #56493b;
-}
-
-#section01-eventos{
-    font-family: Atsanaee;
-    color: #56493b;
-}
-
-.box-section01-eventos{
-    height: 100%;
-}
-
-/* Section02 */
-#section02-eventos{
-    background-color: #d3b390;
-}
-
-#section02-eventos h1{
-    color: #56493b;
-    font-family: Atsanaee;
-}
