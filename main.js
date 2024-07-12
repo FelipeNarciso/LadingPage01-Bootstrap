@@ -15,6 +15,8 @@ function requisitar(url){
     ajax.send()
 }
 
+
+
 function formulario(){
     let nomeValido = true
     let nome = document.getElementById('txtNome')
@@ -103,7 +105,7 @@ function formulario(){
 
 } 
 
-function formulario(){
+function avaliacao(){
     let nomeValido = true
     let nome = document.getElementById('txtNome')
     let erroNome01 = document.getElementById('erroTxtNome01')
@@ -119,7 +121,7 @@ function formulario(){
     let erroTel01 = document.getElementById('erroTxtTel01')
     let erroTel02 = document.getElementById('erroTxtTel02')
     
-    let modal = new bootstrap.Modal(document.getElementById('exampleModal'))
+    let modal = new bootstrap.Modal(document.getElementById('ModalAvaliacao'))
 
 
     
@@ -188,5 +190,4 @@ function formulario(){
         tel.value = ''
         modal.show();
     }
-
-} 
+}
