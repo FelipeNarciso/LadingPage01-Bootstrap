@@ -191,3 +191,7 @@ function avaliacao(){
         modal.show();
     }
 }
+
+function modalFoto(src){
+    document.getElementById('imgModalGaleria').src = src
+}

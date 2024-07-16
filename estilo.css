@@ -181,3 +181,7 @@ footer{
     height: 80%;
     border: 20% solid white;
 }
+
+#section01-galeria img:hover{
+    cursor: pointer;
+}
