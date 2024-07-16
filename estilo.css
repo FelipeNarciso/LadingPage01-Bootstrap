@@ -164,3 +164,20 @@ footer{
     font-family: Brasika;
     color: #56493b;
 }
+
+/* Galeria-content */
+/* Section01 */
+#section01-galeria{
+    background-color: #d3b390;
+}
+
+#section01-galeria h1{
+    font-family: Brasika;
+    color: #56493b;
+}
+
+.sizeImg{
+    width: 100%;
+    height: 80%;
+    border: 20% solid white;
+}
