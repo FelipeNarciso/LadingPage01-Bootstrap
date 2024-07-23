@@ -165,6 +165,10 @@ footer{
     color: #56493b;
 }
 
+#txtArea{
+    height: 5rem;
+}
+
 /* Galeria-content */
 /* Section01 */
 #section01-galeria{

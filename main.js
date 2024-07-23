@@ -17,30 +17,26 @@ function requisitar(url){
 
 
 
-function formulario(){
+function formulario(event){
+    event.preventDefault()
     let nomeValido = true
     let nome = document.getElementById('txtNome')
-    let erroNome01 = document.getElementById('erroTxtNome01')
-    let erroNome02 = document.getElementById('erroTxtNome02')
+
 
     let emailValido = true
     let email = document.getElementById('txtEmail')
-    let erroEmail01 = document.getElementById('erroTxtEmail01')
-    let erroEmail02 = document.getElementById('erroTxtEmail02')
+    
 
     let telValido = true
     let tel = document.getElementById('txtTel')
-    let erroTel01 = document.getElementById('erroTxtTel01')
-    let erroTel02 = document.getElementById('erroTxtTel02')
+    
     
     let modal = new bootstrap.Modal(document.getElementById('exampleModal'))
 
 
     
     if(nome.value == ''){
-        nome.classList.add('is-invalid');
-        erroNome01.classList.remove('d-none')
-        erroNome02.classList.add('d-none')
+        txtNome.setCustomValidity('Teste!')
         nomeValido = false
     } else if(!isNaN(nome.value)){
         nome.classList.add('is-invalid');
@@ -100,6 +96,7 @@ function formulario(){
         nome.value = ''
         email.value = ''
         tel.value = ''
+        
         modal.show();
     }
 

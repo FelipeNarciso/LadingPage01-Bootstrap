@@ -1,7 +1,3 @@
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
-
-
-
 <section id="section01-eventos">
     <h1 class="pt-1 pb-1 text-center fs-1 animate__animated animate__bounce">Próximos Eventos</h1>
     <div class="row d-flex justify-content-center pt-3 fs-2 mw-100 m-0">
@@ -48,47 +44,31 @@
 
 <section id="section02-eventos" class="pt-3 pb-3">
     <h1 class="text-center fs-2 animate__animated animate__infinite animate__pulse mw-100">Entre em contato conosco e faça sua reserva!</h1>
-    <div class="d-flex justify-content-center">
+    <form>
+      <div class="d-flex justify-content-center">
         <div class=" bg-light d-flex flex-column justify-content-center p-3 col-10 col-md-6 rounded-3">
             <div class="input-group has-validation pt-2">
-                <div class="form-floating is-invalid">
+                <div class="form-floating">
                   <input type="text" class="form-control" id="txtNome" required autocomplete="off">
                   <label for="floatingInputGroup2">Nome Completo</label>
                 </div>
-                <div class="invalid-feedback d-none" id="erroTxtNome02">
-                    Nesse campo só será aceito letras!
-                </div>
-                <div class="invalid-feedback d-none" id="erroTxtNome01">
-                  É nescessário preencher esse campo!
-                </div>
             </div>
             <div class="input-group has-validation pt-2">
-                <div class="form-floating is-invalid">
+                <div class="form-floating">
                   <input type="text" class="form-control" id="txtEmail" required autocomplete="off">
                   <label for="floatingInputGroup2">Email</label>
                 </div>
-                <div class="invalid-feedback d-none" id="erroTxtEmail01">
-                  É nescessário preencher esse campo!
-                </div>
-                <div class="invalid-feedback d-none" id="erroTxtEmail02">
-                  É nescessário ter um @ em seu Email!
-                </div>
             </div>
             <div class="input-group has-validation pt-2">
-                <div class="form-floating is-invalid">
+                <div class="form-floating">
                   <input type="tel" class="form-control" id="txtTel" required autocomplete="off" maxlength="11">
                   <label for="floatingInputGroup2">Telefone</label>
                 </div>
-                <div class="invalid-feedback d-none" id="erroTxtTel01">
-                  É nescessário preencher esse campo!
-                </div>
-                <div class="invalid-feedback d-none" id="erroTxtTel02">
-                  Nesse campo só será aceito números!
-                </div>
             </div>
-            <button type="button" class="btn btn-outline-success mt-2" onclick="formulario()">Enviar</button>
+            <button type="submit" class="btn btn-outline-success mt-2" onclick="formulario(event)">Enviar</button>
         </div>
-    </div>
+      </div>
+    </form>
     
 </section>
 
