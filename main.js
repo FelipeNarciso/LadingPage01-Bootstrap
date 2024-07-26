@@ -7,6 +7,7 @@ function requisitar(url){
     ajax.onload = function() {
         if(ajax.status >= 200 && ajax.status < 400){
             conteudo.innerHTML = ajax.responseText
+            atualizarAvaliacoes()
         }else{
             conteudo.innerHTML = 'Ocorreu um erro inesperado :( Já estamos trabalhando nisso!'
         }
@@ -162,15 +163,8 @@ function avaliacao(){
 }
 
 function atualizarAvaliacoes(){
-    window.location.reload()
-}
-
-function modalFoto(src){
-    document.getElementById('imgModalGaleria').src = src
-}
-
-// Sua Avaliação 
-setTimeout(() => {
+    
+    // Sua Avaliação 
     let nomeAvaliacao = localStorage.getItem('nomeAvaliacao')
     let txtAreaAvaliacao = localStorage.getItem('txtAreaAvaliacao')
     let starAvaliacao = localStorage.getItem('starAvaliacao')
@@ -197,11 +191,19 @@ setTimeout(() => {
         txtAvaliacao.innerHTML = `"${txtAreaAvaliacao}"`
     }
 
-}, 1000);
+}
+
+function modalFoto(src){
+    document.getElementById('imgModalGaleria').src = src
+}
+
+
+
+let modalResetAvaliacao
 
 function resetAvaliacao(){
-    let modal = new bootstrap.Modal(document.getElementById('ModalResetAvaliacao'))
-    modal.show()
+    modalResetAvaliacao = new bootstrap.Modal(document.getElementById('ModalResetAvaliacao'))
+    modalResetAvaliacao.show()
 }
 
 
@@ -222,7 +224,7 @@ function setResetAvaliacao(){
 
     let starAvaliacao = document.getElementById('starModal').value
     
-   
+
     
 
  
@@ -267,7 +269,8 @@ function setResetAvaliacao(){
         localStorage.setItem('starAvaliacao' , starAvaliacao)
         nome.value = ''
         txtArea.value = ''
-        atualizarAvaliacoes()
+        modalResetAvaliacao.hide()
+        requisitar('./depoimentos-content.html')
     }
 }
 

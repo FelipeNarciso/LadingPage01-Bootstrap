@@ -56,6 +56,8 @@
             tudo foi perfeito. Os guias conheciam cada detalhe do percurso, garantindo nossa segurança e proporcionando
             uma experiência inesquecível. Recomendo a todos os apaixonados por aventura e natureza!"
         </div>
+        
+        <!-- <button onclick="atualizarAvaliacoes()">Ver Meu Depoimento</button> -->
         <!-- Avaliação Local Storage -->
         <div id="avaliacaoLocalStorage" class="d-none col bg-light col-11 col-md-5 boxDepoimentos p-md-5 p-2 rounded-5 mt-3 mt-md-0 m-0 animate__animated animate__bounceInRight">
             <h5>Sua Avaliação:</h5>
@@ -128,7 +130,7 @@
         <div class="modal-content">
             <div class="modal-header">
                 <h1 class="modal-title fs-5" id="exampleModalLabel">Tudo Certo! &#128077;</h1>
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" onclick="atualizarAvaliacoes()"></button>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" onclick="requisitar('./depoimentos-content.html')"></button>
             </div>
             <div class="modal-body">
                 Sua avaliação acaba de ser excluída!
@@ -143,7 +145,7 @@
         <div class="modal-content">
             <div class="modal-header">
                 <h1 class="modal-title fs-5" id="exampleModalLabel">Atualize sua Avaliação: &#128071;</h1>
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" onclick="atualizarAvaliacoes()"></button>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" onclick="requisitar('./depoimentos-content.html')"></button>
             </div>
             <div class="modal-body">
                 <div class="row d-flex justify-content-center mw-100">
