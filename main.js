@@ -108,16 +108,13 @@ function avaliacao(){
     let erroNome01 = document.getElementById('erroTxtNome01')
     let erroNome02 = document.getElementById('erroTxtNome02')
 
-    let emailValido = true
-    let email = document.getElementById('txtEmail')
-    let erroEmail01 = document.getElementById('erroTxtEmail01')
-    let erroEmail02 = document.getElementById('erroTxtEmail02')
+    let TxtAreaValido = true
+    let txtArea = document.getElementById('txtArea')
+    let erroTxtArea = document.getElementById('erroTxtArea')
 
-    let telValido = true
-    let tel = document.getElementById('txtTel')
-    let erroTel01 = document.getElementById('erroTxtTel01')
-    let erroTel02 = document.getElementById('erroTxtTel02')
+    let starAvaliacao = document.getElementById('star').value
     
+
     let modal = new bootstrap.Modal(document.getElementById('ModalAvaliacao'))
 
 
@@ -142,53 +139,150 @@ function avaliacao(){
 
     // 
 
-    if(email.value == ''){
-        email.classList.add('is-invalid');
-        erroEmail01.classList.remove('d-none')
-        erroEmail02.classList.add('d-none')
-        emailValido = false
+    if(txtArea.value == ''){
+        txtArea.classList.add('is-invalid');
+        erroTxtArea.classList.remove('d-none')
+        TxtAreaValido = false
 
-    } else if(!email.value.includes('@')){
-        email.classList.add('is-invalid');
-        erroEmail01.classList.add('d-none')
-        erroEmail02.classList.remove('d-none')
-        emailValido = false
-    }
-    else{
-        email.classList.remove('is-invalid');
-        erroEmail01.classList.add('d-none')
-        erroEmail02.classList.add('d-none')
-        emailValido = true
+    }else{
+        txtArea.classList.remove('is-invalid');
+        erroTxtArea.classList.add('d-none')
+        TxtAreaValido = true
     }
 
-    // 
-
-    if(tel.value == ''){
-        tel.classList.add('is-invalid');
-        erroTel01.classList.remove('d-none')
-        erroTel02.classList.add('d-none')
-        telValido = false
-    } else if(isNaN(tel.value)){
-        tel.classList.add('is-invalid');
-        erroTel01.classList.add('d-none')
-        erroTel02.classList.remove('d-none')
-        telValido = false
-    }
-    else{
-        tel.classList.remove('is-invalid');
-        erroTel01.classList.add('d-none')
-        erroTel02.classList.add('d-none')
-        telValido = true
-    }
-
-    if (nomeValido && emailValido && telValido) {
+//
+    if (nomeValido && TxtAreaValido) {
+        localStorage.setItem('nomeAvaliacao' , nome.value)
+        localStorage.setItem('txtAreaAvaliacao' , txtArea.value)
+        localStorage.setItem('starAvaliacao' , starAvaliacao)
         nome.value = ''
-        email.value = ''
-        tel.value = ''
+        txtArea.value = ''
         modal.show();
     }
+}
+
+function atualizarAvaliacoes(){
+    window.location.reload()
 }
 
 function modalFoto(src){
     document.getElementById('imgModalGaleria').src = src
 }
+
+// Sua Avaliação 
+setTimeout(() => {
+    let nomeAvaliacao = localStorage.getItem('nomeAvaliacao')
+    let txtAreaAvaliacao = localStorage.getItem('txtAreaAvaliacao')
+    let starAvaliacao = localStorage.getItem('starAvaliacao')
+    let h3Avaliacao = document.getElementById('h3Avaliacao')
+    let avaliacaoLocalStorage = document.getElementById('avaliacaoLocalStorage')
+    let txtAvaliacao = document.getElementById('txtAvaliacao')
+
+    if(starAvaliacao === 'star01'){
+        starAvaliacao = '&#9733;'
+    }else if(starAvaliacao === 'star02'){
+        starAvaliacao = '&#9733; &#9733;'
+    }else if(starAvaliacao === 'star03'){
+        starAvaliacao = '&#9733; &#9733; &#9733;'
+    }else if(starAvaliacao === 'star04'){
+        starAvaliacao = '&#9733; &#9733; &#9733; &#9733;'
+    }else if(starAvaliacao === 'star05'){
+        starAvaliacao = '&#9733; &#9733; &#9733; &#9733; &#9733;'
+    }
+
+    
+    if(nomeAvaliacao !== null){
+        avaliacaoLocalStorage.classList.remove('d-none')
+        h3Avaliacao.innerHTML = `${nomeAvaliacao}: <span class="gold-star"> ${starAvaliacao} </span>`
+        txtAvaliacao.innerHTML = `"${txtAreaAvaliacao}"`
+    }
+
+}, 1000);
+
+function resetAvaliacao(){
+    let modal = new bootstrap.Modal(document.getElementById('ModalResetAvaliacao'))
+    modal.show()
+}
+
+
+
+
+
+
+
+function setResetAvaliacao(){
+    let nomeValido = true
+    let nome = document.getElementById('txtNomeModal')
+    let erroNome01 = document.getElementById('erroTxtNomeModal01')
+    let erroNome02 = document.getElementById('erroTxtNomeModal02')
+
+    let TxtAreaValido = true
+    let txtArea = document.getElementById('txtAreaModal')
+    let erroTxtArea = document.getElementById('erroTxtAreaModal')
+
+    let starAvaliacao = document.getElementById('starModal').value
+    
+   
+    
+
+ 
+
+
+    
+    if(nome.value == ''){
+        nome.classList.add('is-invalid');
+        erroNome01.classList.remove('d-none')
+        erroNome02.classList.add('d-none')
+        nomeValido = false
+    } else if(!isNaN(nome.value)){
+        nome.classList.add('is-invalid');
+        erroNome01.classList.add('d-none')
+        erroNome02.classList.remove('d-none')
+        nomeValido = false
+    }
+    else{
+        nome.classList.remove('is-invalid');
+        erroNome01.classList.add('d-none')
+        erroNome02.classList.add('d-none')
+        nomeValido = true
+    }
+
+    // 
+
+    if(txtArea.value == ''){
+        txtArea.classList.add('is-invalid');
+        erroTxtArea.classList.remove('d-none')
+        TxtAreaValido = false
+
+    }else{
+        txtArea.classList.remove('is-invalid');
+        erroTxtArea.classList.add('d-none')
+        TxtAreaValido = true
+    }
+
+//
+    if (nomeValido && TxtAreaValido) {
+        localStorage.setItem('nomeAvaliacao' , nome.value)
+        localStorage.setItem('txtAreaAvaliacao' , txtArea.value)
+        localStorage.setItem('starAvaliacao' , starAvaliacao)
+        nome.value = ''
+        txtArea.value = ''
+        atualizarAvaliacoes()
+    }
+}
+
+
+
+
+
+
+
+
+function deletarAvaliacao(){
+    localStorage.removeItem('nomeAvaliacao')
+    localStorage.removeItem('txtAreaAvaliacao')
+    localStorage.removeItem('starAvaliacao')
+    let modal = new bootstrap.Modal(document.getElementById('ModalDeleteAvaliacao'))
+    modal.show()
+}
+
