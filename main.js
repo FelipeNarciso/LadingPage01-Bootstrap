@@ -1,14 +1,14 @@
-function requisitar(url){
+function requisitar(url) {
     let conteudo = document.getElementById('conteudo')
     let ajax = new XMLHttpRequest()
 
-    ajax.open('GET' , url , true)
+    ajax.open('GET', url, true)
 
-    ajax.onload = function() {
-        if(ajax.status >= 200 && ajax.status < 400){
+    ajax.onload = function () {
+        if (ajax.status >= 200 && ajax.status < 400) {
             conteudo.innerHTML = ajax.responseText
             atualizarAvaliacoes()
-        }else{
+        } else {
             conteudo.innerHTML = 'Ocorreu um erro inesperado :( Já estamos trabalhando nisso!'
         }
     }
@@ -16,80 +16,58 @@ function requisitar(url){
     ajax.send()
 }
 
-
-
-function formulario(event){
+function formulario(event) {
     event.preventDefault()
     let nomeValido = true
     let nome = document.getElementById('txtNome')
-
+    let erroNome = document.getElementById('erroTxtNome')
+    let nomeRejex = /^[a-zA-Z][a-zA-Z]*(?:\s[a-zA-Z][a-zA-Z]*)+$/
 
     let emailValido = true
     let email = document.getElementById('txtEmail')
-    
+    let emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/
+    let erroEmail = document.getElementById('erroTxtEmail')
 
     let telValido = true
     let tel = document.getElementById('txtTel')
-    
-    
+    let telRejex = /(\d{2})(\d{0,5})(\d{0,4})/
+
+    erroTel = document.getElementById('erroTxtTel')
+
     let modal = new bootstrap.Modal(document.getElementById('exampleModal'))
 
-
-    
-    if(nome.value == ''){
-        txtNome.setCustomValidity('Teste!')
+    if (!nomeRejex.test(nome.value)){ 
+        nome.classList.add('is-invalid')
+        erroNome.classList.remove('d-none')
         nomeValido = false
-    } else if(!isNaN(nome.value)){
-        nome.classList.add('is-invalid');
-        erroNome01.classList.add('d-none')
-        erroNome02.classList.remove('d-none')
-        nomeValido = false
-    }
-    else{
-        nome.classList.remove('is-invalid');
-        erroNome01.classList.add('d-none')
-        erroNome02.classList.add('d-none')
+    } else {
+        nome.classList.remove('is-invalid')
+        erroNome.classList.add('d-none')
         nomeValido = true
     }
 
     // 
 
-    if(email.value == ''){
-        email.classList.add('is-invalid');
-        erroEmail01.classList.remove('d-none')
-        erroEmail02.classList.add('d-none')
+    if (!emailRegex.test(email.value)) {
+        email.classList.add('is-invalid')
+        erroEmail.classList.remove('d-none')
         emailValido = false
 
-    } else if(!email.value.includes('@')){
-        email.classList.add('is-invalid');
-        erroEmail01.classList.add('d-none')
-        erroEmail02.classList.remove('d-none')
-        emailValido = false
-    }
-    else{
-        email.classList.remove('is-invalid');
-        erroEmail01.classList.add('d-none')
-        erroEmail02.classList.add('d-none')
+    }else {
+        email.classList.remove('is-invalid')
+        erroEmail.classList.add('d-none')
         emailValido = true
     }
 
     // 
 
-    if(tel.value == ''){
-        tel.classList.add('is-invalid');
-        erroTel01.classList.remove('d-none')
-        erroTel02.classList.add('d-none')
+    if (!telRejex.test(tel.value)) {
+        tel.classList.add('is-invalid')
+        erroTel.classList.remove('d-none')
         telValido = false
-    } else if(isNaN(tel.value)){
-        tel.classList.add('is-invalid');
-        erroTel01.classList.add('d-none')
-        erroTel02.classList.remove('d-none')
-        telValido = false
-    }
-    else{
-        tel.classList.remove('is-invalid');
-        erroTel01.classList.add('d-none')
-        erroTel02.classList.add('d-none')
+    }else {
+        tel.classList.remove('is-invalid')
+        erroTel.classList.add('d-none')
         telValido = true
     }
 
@@ -97,13 +75,23 @@ function formulario(event){
         nome.value = ''
         email.value = ''
         tel.value = ''
-        
         modal.show();
     }
 
-} 
+}
 
-function avaliacao(){
+function formatarTel() {
+    let tel = document.getElementById('txtTel');
+    let telFormatado = tel.value.replace(/\D/g, '');
+
+    if (telFormatado.length > 2) {
+        telFormatado = telFormatado.replace(/(\d{2})(\d{0,5})(\d{0,4})/, '($1) $2-$3');
+    }
+
+    tel.value = telFormatado;
+}
+
+function avaliacao() {
     let nomeValido = true
     let nome = document.getElementById('txtNome')
     let erroNome01 = document.getElementById('erroTxtNome01')
@@ -114,24 +102,21 @@ function avaliacao(){
     let erroTxtArea = document.getElementById('erroTxtArea')
 
     let starAvaliacao = document.getElementById('star').value
-    
 
     let modal = new bootstrap.Modal(document.getElementById('ModalAvaliacao'))
 
-
-    
-    if(nome.value == ''){
+    if (nome.value == '') {
         nome.classList.add('is-invalid');
         erroNome01.classList.remove('d-none')
         erroNome02.classList.add('d-none')
         nomeValido = false
-    } else if(!isNaN(nome.value)){
+    } else if (!isNaN(nome.value)) {
         nome.classList.add('is-invalid');
         erroNome01.classList.add('d-none')
         erroNome02.classList.remove('d-none')
         nomeValido = false
     }
-    else{
+    else {
         nome.classList.remove('is-invalid');
         erroNome01.classList.add('d-none')
         erroNome02.classList.add('d-none')
@@ -140,30 +125,30 @@ function avaliacao(){
 
     // 
 
-    if(txtArea.value == ''){
+    if (txtArea.value == '') {
         txtArea.classList.add('is-invalid');
         erroTxtArea.classList.remove('d-none')
         TxtAreaValido = false
 
-    }else{
+    } else {
         txtArea.classList.remove('is-invalid');
         erroTxtArea.classList.add('d-none')
         TxtAreaValido = true
     }
 
-//
+    //
     if (nomeValido && TxtAreaValido) {
-        localStorage.setItem('nomeAvaliacao' , nome.value)
-        localStorage.setItem('txtAreaAvaliacao' , txtArea.value)
-        localStorage.setItem('starAvaliacao' , starAvaliacao)
+        localStorage.setItem('nomeAvaliacao', nome.value)
+        localStorage.setItem('txtAreaAvaliacao', txtArea.value)
+        localStorage.setItem('starAvaliacao', starAvaliacao)
         nome.value = ''
         txtArea.value = ''
         modal.show();
     }
 }
 
-function atualizarAvaliacoes(){
-    
+function atualizarAvaliacoes() {
+
     // Sua Avaliação 
     let nomeAvaliacao = localStorage.getItem('nomeAvaliacao')
     let txtAreaAvaliacao = localStorage.getItem('txtAreaAvaliacao')
@@ -172,20 +157,20 @@ function atualizarAvaliacoes(){
     let avaliacaoLocalStorage = document.getElementById('avaliacaoLocalStorage')
     let txtAvaliacao = document.getElementById('txtAvaliacao')
 
-    if(starAvaliacao === 'star01'){
+    if (starAvaliacao === 'star01') {
         starAvaliacao = '&#9733;'
-    }else if(starAvaliacao === 'star02'){
+    } else if (starAvaliacao === 'star02') {
         starAvaliacao = '&#9733; &#9733;'
-    }else if(starAvaliacao === 'star03'){
+    } else if (starAvaliacao === 'star03') {
         starAvaliacao = '&#9733; &#9733; &#9733;'
-    }else if(starAvaliacao === 'star04'){
+    } else if (starAvaliacao === 'star04') {
         starAvaliacao = '&#9733; &#9733; &#9733; &#9733;'
-    }else if(starAvaliacao === 'star05'){
+    } else if (starAvaliacao === 'star05') {
         starAvaliacao = '&#9733; &#9733; &#9733; &#9733; &#9733;'
     }
 
-    
-    if(nomeAvaliacao !== null){
+
+    if (nomeAvaliacao !== null) {
         avaliacaoLocalStorage.classList.remove('d-none')
         h3Avaliacao.innerHTML = `${nomeAvaliacao}: <span class="gold-star"> ${starAvaliacao} </span>`
         txtAvaliacao.innerHTML = `"${txtAreaAvaliacao}"`
@@ -193,26 +178,19 @@ function atualizarAvaliacoes(){
 
 }
 
-function modalFoto(src){
+function modalFoto(src) {
     document.getElementById('imgModalGaleria').src = src
 }
 
 
-
 let modalResetAvaliacao
 
-function resetAvaliacao(){
+function resetAvaliacao() {
     modalResetAvaliacao = new bootstrap.Modal(document.getElementById('ModalResetAvaliacao'))
     modalResetAvaliacao.show()
 }
 
-
-
-
-
-
-
-function setResetAvaliacao(){
+function setResetAvaliacao() {
     let nomeValido = true
     let nome = document.getElementById('txtNomeModal')
     let erroNome01 = document.getElementById('erroTxtNomeModal01')
@@ -223,26 +201,19 @@ function setResetAvaliacao(){
     let erroTxtArea = document.getElementById('erroTxtAreaModal')
 
     let starAvaliacao = document.getElementById('starModal').value
-    
 
-    
-
- 
-
-
-    
-    if(nome.value == ''){
+    if (nome.value == '') {
         nome.classList.add('is-invalid');
         erroNome01.classList.remove('d-none')
         erroNome02.classList.add('d-none')
         nomeValido = false
-    } else if(!isNaN(nome.value)){
+    } else if (!isNaN(nome.value)) {
         nome.classList.add('is-invalid');
         erroNome01.classList.add('d-none')
         erroNome02.classList.remove('d-none')
         nomeValido = false
     }
-    else{
+    else {
         nome.classList.remove('is-invalid');
         erroNome01.classList.add('d-none')
         erroNome02.classList.add('d-none')
@@ -251,22 +222,22 @@ function setResetAvaliacao(){
 
     // 
 
-    if(txtArea.value == ''){
+    if (txtArea.value == '') {
         txtArea.classList.add('is-invalid');
         erroTxtArea.classList.remove('d-none')
         TxtAreaValido = false
 
-    }else{
+    } else {
         txtArea.classList.remove('is-invalid');
         erroTxtArea.classList.add('d-none')
         TxtAreaValido = true
     }
 
-//
+    //
     if (nomeValido && TxtAreaValido) {
-        localStorage.setItem('nomeAvaliacao' , nome.value)
-        localStorage.setItem('txtAreaAvaliacao' , txtArea.value)
-        localStorage.setItem('starAvaliacao' , starAvaliacao)
+        localStorage.setItem('nomeAvaliacao', nome.value)
+        localStorage.setItem('txtAreaAvaliacao', txtArea.value)
+        localStorage.setItem('starAvaliacao', starAvaliacao)
         nome.value = ''
         txtArea.value = ''
         modalResetAvaliacao.hide()
@@ -274,14 +245,7 @@ function setResetAvaliacao(){
     }
 }
 
-
-
-
-
-
-
-
-function deletarAvaliacao(){
+function deletarAvaliacao() {
     localStorage.removeItem('nomeAvaliacao')
     localStorage.removeItem('txtAreaAvaliacao')
     localStorage.removeItem('starAvaliacao')

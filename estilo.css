@@ -1,107 +1,95 @@
 /*Index */
-body{
+body {
     overflow-x: hidden;
 }
+
 /* Navbar */
-#navbar{
+#navbar {
     background-color: #56493b;
 }
 
-#tituloNavbar{
+#tituloNavbar {
     font-family: Brasika;
 }
 
-#navbar a{
+#navbar a {
     color: #fcf6db;
     font-family: Atasanee;
 }
 
-#navbarNav a:hover{
+#navbarNav a:hover {
     color: gold;
     text-decoration-line: underline;
     text-underline-offset: 10px;
-    cursor: pointer; 
+    cursor: pointer;
 }
 
-#btnToggle{
+#btnToggle {
     background-color: none;
     border-color: #fcf6db;
     color: white;
 }
 
-footer{
-    background-color: #d3b390 ;
+#font-footer {
+    font-size: 0.8rem;
+}
+
+footer {
+    background-color: #d3b390;
     color: #56493b;
 }
-/* Media Queries */
-
-@media  screen and (max-width: 1028px) {
-    .box-diferenciais{
-        height: 300px;
-    }
-    #font-footer{
-        font-size: 0.8rem;
-     }
-}
-
-@media  screen and (max-width: 500px) {
-    #section-01-home{
-        background-attachment: scroll;
-    }
-}
-
 
 /* Home-content */
 /* Section01 */
-#section01-home{
+#section01-home {
     background-image: url(./images/ImagemFundo.jpg);
     background-repeat: no-repeat;
     background-size: cover;
 }
 
-#section01-home h1{
+#section01-home h1 {
     font-family: Brasika !important;
     background-color: #fcf6db;
 }
 
-.caixaTextoSection01{
+.caixaTextoSection01 {
     background-color: #56493b;
     color: #fcf6db;
     font-family: Atsanee;
-    width: 300px;
-    height: 300px;
+    height: 20rem;
+    box-shadow: 0px 0px 10px black;
 }
 
 /* Section02 */
-#section02-home{
-    background-color:rgb(215, 205, 195);
+#section02-home {
+    background-color: rgb(215, 205, 195);
 }
 
-#section02-home h1{
+#section02-home h1 {
     color: #56493b;
     font-family: Brasika;
 }
 
-#section02-home h5{
+#section02-home h5 {
     color: #56493b;
     font-family: Atsanee;
     width: 90%;
 }
 
 /* Section03 */
-#section03-home{
+#section03-home {
     background-image: url(./images/imagem5.jpg);
     background-repeat: no-repeat;
     background-size: cover;
 }
 
-#section03-home h1{
+#section03-home h1 {
     color: #56493b;
     font-family: Brasika;
 }
 
-.box-diferenciais{
-    height: 400px;
+.box-diferenciais {
+    height: 20rem;
     box-shadow: 0px 0px 10px black;
     display: flex;
     flex-direction: column;
@@ -113,79 +101,95 @@ footer{
 
 /* Eventos-content */
 /* Section01 */
-#section01-eventos{
+#section01-eventos {
     background-color: #d3b390;
 }
 
-#section01-eventos h1{
+#section01-eventos h1 {
     font-family: Brasika;
     color: #56493b;
 }
 
-#section01-eventos{
+#section01-eventos {
     font-family: Atsanaee;
     color: #56493b;
 }
 
-.box-section01-eventos{
+.box-section01-eventos {
     height: 100%;
 }
 
 /* Section02 */
-#section02-eventos{
+#section02-eventos {
     background-color: #d3b390;
 }
 
-#section02-eventos h1{
+#section02-eventos h1 {
     color: #56493b;
     font-family: Atsanaee;
 }
 
 /* Depoimentos-content */
 /* Section01 */
-#section01-depoimentos{
+#section01-depoimentos {
     background-color: #d3b390;
 }
 
-#section01-depoimentos  h1{
+#section01-depoimentos h1 {
     font-family: Brasika;
     color: #56493b;
 }
-.gold-star{
+
+.gold-star {
     color: gold;
 }
 
 /* Section02 */
-#section02-depoimentos{
+#section02-depoimentos {
     background-color: #d3b390;
 }
 
-#section02-depoimentos{
+#section02-depoimentos {
     font-family: Brasika;
     color: #56493b;
 }
 
-#txtArea{
+#txtArea {
     height: 5rem;
 }
 
 /* Galeria-content */
 /* Section01 */
-#section01-galeria{
+#section01-galeria {
     background-color: #d3b390;
 }
 
-#section01-galeria h1{
+#section01-galeria h1 {
     font-family: Brasika;
     color: #56493b;
 }
 
-.sizeImg{
+#galeria-imagens img {
+    transition: 0.2s ease;
+}
+
+#galeria-imagens img:hover {
+    transform: scale(1.1);
+    cursor: pointer;
+}
+
+.sizeImg {
     width: 100%;
     height: 80%;
     border: 20% solid white;
 }
 
-#section01-galeria img:hover{
-    cursor: pointer;
+.teste{
+    position: absolute;
+}
+
+.teste2{
+    display: flex;
+    justify-content: right;
+    padding-right: 1%;
 }
