@@ -186,6 +186,18 @@ function modalFoto(src) {
 let modalResetAvaliacao
 
 function resetAvaliacao() {
+    let nome = document.getElementById('txtNomeModal')
+    let txtArea = document.getElementById('txtAreaModal')
+    let starAvaliacao = document.getElementById('starModal').value
+
+    let nomeLocal = localStorage.getItem('nomeAvaliacao')
+    let txtAreaLocal = localStorage.getItem('txtAreaAvaliacao')
+    let starLocal = localStorage.getItem('starAvaliacao')
+
+    nome.value = nomeLocal
+    txtArea.value = txtAreaLocal
+    starAvaliacao = starLocal
+    
     modalResetAvaliacao = new bootstrap.Modal(document.getElementById('ModalResetAvaliacao'))
     modalResetAvaliacao.show()
 }
